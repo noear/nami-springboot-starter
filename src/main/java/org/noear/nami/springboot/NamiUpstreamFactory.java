@@ -8,6 +8,7 @@ import java.util.function.Supplier;
 /**
  * Nami负载均衡提供工厂
  * 集成服务发现时，可以通过该工厂把找到的服务注册进来
+ * @author desire
  */
 public class NamiUpstreamFactory {
     private static Map<String,Supplier<String>> upstreamMap=new ConcurrentHashMap<>();

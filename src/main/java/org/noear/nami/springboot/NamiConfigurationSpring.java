@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.util.StringUtils;
 
-import javax.annotation.PostConstruct;
 import java.lang.reflect.Type;
 import java.util.function.Supplier;
 
@@ -18,8 +17,10 @@ public class NamiConfigurationSpring implements NamiConfiguration {
     @Autowired(required = false)
     NamiConfigurationCustom namiConfiguration;
 
+    public NamiConfigurationSpring(){
+        init();
+    }
 
-    @PostConstruct
     private void init(){
         NamiConfigurationDefault.proxy=this;
         NamiManager.reg(new FastjsonDecoder(){

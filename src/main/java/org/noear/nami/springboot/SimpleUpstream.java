@@ -5,6 +5,7 @@ import java.util.function.Supplier;
 
 /**
  * 一个简单的负载均衡器
+ * @author desire
  */
 public class SimpleUpstream implements Supplier<String> {
     private final List<String> urls;

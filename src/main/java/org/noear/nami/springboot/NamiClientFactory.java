@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 /**
  * 动态生成nami的client
  * @param <T>
+ * @author desire
  */
 public class NamiClientFactory<T> implements FactoryBean<T> {
 

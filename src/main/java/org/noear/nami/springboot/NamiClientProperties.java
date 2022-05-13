@@ -10,6 +10,7 @@ import java.util.Map;
 
 /**
  * Naimi 配置项,主要用于生成配置提示
+ * @author desire
  */
 @ConfigurationProperties("spring.nami")
 public class NamiClientProperties {
