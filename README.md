@@ -11,12 +11,12 @@
 
 
 
-## nami 基础使用参考：
+## 1、nami 基础使用参考：
 
 [https://gitee.com/noear/solon/tree/master/_nami](https://gitee.com/noear/solon/tree/master/_nami)
 
 
-## nami-springboot-starter 使用参考：
+## 2、nami-springboot-starter 使用参考：
 
 服务配置
 
@@ -38,8 +38,10 @@ spring:
 public interface BaiduApi {
     @Mapping("GET s")
     String search(String w);
+    
     @Mapping("GET s")
     Result test2(String w);
+    
     default void doTest(){
         for(int i=0;i<10;i++){
           Result r=  this.test2("测试");
