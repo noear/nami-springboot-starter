@@ -8,4 +8,62 @@
 
 
 # nami-springboot-starter
-nami-springboot-starter
+
+
+
+## nami 基础使用参考：
+
+[https://gitee.com/noear/solon/tree/master/_nami](https://gitee.com/noear/solon/tree/master/_nami)
+
+
+## nami-springboot-starter 使用参考：
+
+服务配置
+
+```yaml
+spring:
+  nami:
+    #配置服务地址，可选。未配置时直接在@NamiClient中配置url即可
+    services:
+      baidu: https://www.baidu.com,http://220.181.38.150
+    #可选配置,多个包用","分隔
+    packages: org.noear.nami.demo
+
+```
+
+接口申明
+
+```java
+@NamiClient(name = "baidu")
+public interface BaiduApi {
+    @Mapping("GET s")
+    String search(String w);
+    @Mapping("GET s")
+    Result test2(String w);
+    default void doTest(){
+        for(int i=0;i<10;i++){
+          Result r=  this.test2("测试");
+            System.out.println(r.code());
+        }
+    }
+}
+```
+
+接口应用与测试
+
+```java
+@Service
+public class TestService {
+    @Autowired
+    BaiduApi api;
+    
+    @PostConstruct
+    public void init(){
+        System.out.println("测试");
+        System.out.println(api.search("测试1"));
+        api.doTest();
+
+    }
+}
+```
+
